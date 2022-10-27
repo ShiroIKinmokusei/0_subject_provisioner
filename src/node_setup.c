@@ -1,40 +1,3 @@
-/* Copyright (c) 2010 - 2020, Nordic Semiconductor ASA
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- * 1. Redistributions of source code must retain the above copyright notice, this
- * list of conditions and the following disclaimer.
- *
- * 2. Redistributions in binary form, except as embedded into a Nordic
- *    Semiconductor ASA integrated circuit in a product or a software update for
- *    such product, must reproduce the above copyright notice, this list of
- *    conditions and the following disclaimer in the documentation and/or other
- *    materials provided with the distribution.
- *
- * 3. Neither the name of Nordic Semiconductor ASA nor the names of its
- *    contributors may be used to endorse or promote products derived from this
- *    software without specific prior written permission.
- *
- * 4. This software, with or without modification, must only be used with a
- *    Nordic Semiconductor ASA integrated circuit.
- *
- * 5. Any software provided in binary form under this license must not be reverse
- *    engineered, decompiled, modified and/or disassembled.
- *
- * THIS SOFTWARE IS PROVIDED BY NORDIC SEMICONDUCTOR ASA "AS IS" AND ANY EXPRESS
- * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
- * OF MERCHANTABILITY, NONINFRINGEMENT, AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL NORDIC SEMICONDUCTOR ASA OR CONTRIBUTORS BE
- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
- * GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
- * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
- * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
-
 #include <stdint.h>
 #include <stdbool.h>
 #include <string.h>
@@ -324,7 +287,8 @@ static uint32_t pub_state_set(config_publication_state_t * p_pubstate,
     p_pubstate->publish_address.value = publish_addr;
     p_pubstate->appkey_index = m_appkey_idx;
     p_pubstate->frendship_credential_flag = false;
-    p_pubstate->publish_ttl = ACCESS_DEFAULT_TTL;
+    //p_pubstate->publish_ttl = ACCESS_DEFAULT_TTL;
+    p_pubstate->publish_ttl = 1;
     p_pubstate->publish_period = publish_period;
     p_pubstate->retransmit_count = 1;
     p_pubstate->retransmit_interval = 0;
@@ -541,13 +505,15 @@ static void config_step_execute(void)
                 .step_res = ACCESS_PUBLISH_RESOLUTION_100MS
             };
             config_publication_state_t pubstate = {0};
-
+            uint16_t server_pub_address = NRF_MESH_ALL_NODES_ADDR //set all node
             status = pub_state_set(&pubstate,
                                    m_current_element_addr,
-                                   server_pub_address_get(m_current_node_addr),
+                                   server_pub_address,
+                                   //server_pub_address_get(m_current_node_addr),
                                    publish_period);
             __LOG(LOG_SRC_APP, LOG_LEVEL_INFO, "Setting publication address to 0x%04x for %s on element address 0x%04x\n",
-                  server_pub_address_get(m_current_node_addr),
+                  server_pub_address,
+                  //server_pub_address_get(m_current_node_addr),
                   model_name_by_id_get(mp_config_step->model_id),
                   m_current_element_addr);
             break;
@@ -567,13 +533,15 @@ static void config_step_execute(void)
                 .step_res = ACCESS_PUBLISH_RESOLUTION_100MS
             };
             config_publication_state_t pubstate = {0};
-
+            uint16_t client_pub_address = NRF_MESH_ALL_NODES_ADDR //set all node
             status = pub_state_set(&pubstate,
                                    m_current_element_addr,
-                                   client_pub_address_get(m_current_element_addr),
+                                   client_pub_address,
+                                   //client_pub_address_get(m_current_element_addr),
                                    publish_period);
             __LOG(LOG_SRC_APP, LOG_LEVEL_INFO, "Setting publication address to 0x%04x for %s on element address 0x%04x\n",
-                  client_pub_address_get(m_current_element_addr),
+                  client_pub_address,
+                  //client_pub_address_get(m_current_element_addr),
                   model_name_by_id_get(mp_config_step->model_id),
                   m_current_element_addr);
             break;

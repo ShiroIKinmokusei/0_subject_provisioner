@@ -23,6 +23,7 @@
  <Project>
   <ProjectSessionItem path="provisioner_nrf52840_xxAA_s140_7.0.1"/>
   <ProjectSessionItem path="provisioner_nrf52840_xxAA_s140_7.0.1;provisioner_nrf52840_xxAA_s140_7.0.1"/>
+  <ProjectSessionItem path="provisioner_nrf52840_xxAA_s140_7.0.1;provisioner_nrf52840_xxAA_s140_7.0.1;Application"/>
  </Project>
  <Register1>
   <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/msp;CPU/psp;CPU/cfbp;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="provisioner_nrf52840_xxAA_s140_7.0.1" decimalNodes="" octalNodes="" unsignedNodes=""/>
@@ -58,7 +59,7 @@
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="127" useTextEdit="1" useBinaryEdit="0" left="0" path="../../mesh/core/api/nrf_mesh_defines.h" selected="0" top="127" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" useBinaryEdit="0" left="0" path="../../doc/getting_started/SES.md" selected="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="294" useTextEdit="1" useBinaryEdit="0" left="0" path="src/main.c" selected="0" top="294" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="43" y="542" useTextEdit="1" useBinaryEdit="0" left="0" path="src/node_setup.c" selected="1" top="532" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="542" useTextEdit="1" useBinaryEdit="0" left="0" path="src/node_setup.c" selected="1" top="542" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="294" useTextEdit="1" useBinaryEdit="0" left="0" path="../../mesh/bearer/src/bearer_handler.c" selected="0" top="275" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="43" useTextEdit="1" useBinaryEdit="0" left="0" path="include/config_steps.h" selected="0" top="43" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="47" useTextEdit="1" useBinaryEdit="0" left="0" path="src/provisioner_helper.c" selected="0" top="47" codecName="Default"/>
